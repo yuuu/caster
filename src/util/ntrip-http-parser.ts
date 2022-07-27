@@ -19,7 +19,7 @@
 import {HTTPParser} from 'http-parser-ts';
 
 export class NtripHTTPParser extends HTTPParser {
-    static readonly REQUEST_EXP = /^(?<method>[A-Z-_]+|SOURCE (?<secret>[^ ]+)) (?<url>[^ ]+)(?: (?<protocol>HTTP|RTSP|RTP)\/(?<versionMajor>\d)\.(?<versionMinor>\d))?$/;
+    static readonly REQUEST_EXP = /^(?<method>[A-Z-_]+|SOURCE (?<secret>[^ ]*)) (?<url>[^ ]+)(?: (?<protocol>HTTP|RTSP|RTP)\/(?<versionMajor>\d)\.(?<versionMinor>\d))?$/;
 
     static readonly RESPONSE_EXP = /^(?<protocol>ICY|SOURCETABLE|HTTP|RTSP)(?:\/(?<versionMajor>\d)\.(?<versionMinor>\d))? (?<code>\d{3}) ?(?<message>.*)$/;
     static readonly ERROR_EXP = /^(?<protocol>ERROR)(?: - (?<message>.*))?$/;
