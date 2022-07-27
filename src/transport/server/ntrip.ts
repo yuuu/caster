@@ -245,7 +245,7 @@ export class NtripTransport extends Transport {
 
         // Parse URL
         if (req.url != undefined) req.query = url.parse(req.url, true, false);
-        req.mountpoint = req.query!.pathname!.slice(1);
+        req.mountpoint = req.query!.pathname![0] === '/' ? req.query!.pathname!.slice(1) : req.query!.pathname!;
         if (req.mountpoint.length === 0) req.mountpoint = null;
 
         // Remote host
